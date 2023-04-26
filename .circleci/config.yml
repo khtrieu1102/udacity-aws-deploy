@@ -55,12 +55,21 @@ jobs:
       - eb/setup
       - aws-cli/setup
       - checkout
+# Deploying the frontend to AWS S3
       - run:
-          name: Deploy App
-          # TODO: Install, build, deploy in both apps
+          name: Front-end Deploy
           command: |
             npm run frontend:deploy
-            npm run api:deploy
+# Installing AWS Elastic Beanstalk CLI
+      - run:
+          name: Setup and Install AWS Elastic Beanstalk
+          command: |
+            npm run backend:eb-installation
+# Deploying the backend to AWS Elastic Beanstalk
+      - run:
+          name: Back-End Deploy
+          command: |
+            npm run backend:deploy
             
 workflows:
   udagram:
