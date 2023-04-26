@@ -60,11 +60,6 @@ jobs:
           name: Front-end Deploy
           command: |
             npm run frontend:deploy
-# Installing AWS Elastic Beanstalk CLI
-      - run:
-          name: Setup and Install AWS Elastic Beanstalk
-          command: |
-            npm run backend:eb-installation
 # Deploying the backend to AWS Elastic Beanstalk
       - run:
           name: Back-End Deploy
